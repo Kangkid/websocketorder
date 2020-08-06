@@ -18,4 +18,4 @@ spec:
       value: "kangkangkid/websocketorder"
     - name: imageTag
       value: "latest"
-  serviceAccount: pipeline-account
+  ServiceAccount: pipeline-account
