@@ -12,9 +12,9 @@ spec:
         name: tekton-knative-git
   params:
     - name: pathToContext
-      value: "src"
+      value: "get_shop_info/src"
     - name: pathToYamlFile
-      value: "knative/get_shop_info.yaml"
+      value: "get_shop_info/knative/get_shop_info.yaml"
     - name: imageUrl
       value: "kangkangkid/websocketorder"
     - name: imageTag
