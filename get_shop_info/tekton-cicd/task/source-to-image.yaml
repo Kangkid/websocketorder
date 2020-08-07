@@ -21,7 +21,7 @@ spec:
         default: "latest"
   steps:
     - name: build-and-push
-      image: cnych/kaniko-executor:v0.22.0
+      image: gcr.io/kaniko-project/executor
       command:
         - /kaniko/executor
       args:
@@ -30,7 +30,7 @@ spec:
         - --context=/workspace/git-source/${inputs.params.pathToContext}
       env:
       - name: DOCKER_CONFIG
-        value: /tekton/home/.docker
+        value: /builder/home/.docker/
 
 
 
