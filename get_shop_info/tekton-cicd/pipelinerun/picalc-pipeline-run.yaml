@@ -13,8 +13,6 @@ spec:
   params:
     - name: pathToContext
       value: "get_shop_info/src"
-    - name: pathToDockerFile
-      value: "/get_shop_info/src/Dockerfile"
     - name: pathToYamlFile
       value: "get_shop_info/knative/get_shop_info.yaml"
     - name: imageUrl
