@@ -5,7 +5,7 @@ metadata:
 spec:
   inputs:
     resources:
-      - name: git-source
+      - name: repo
         type: git
     params:
       - name: pathToYamlFile
@@ -23,11 +23,11 @@ spec:
         - "-i"
         - "-e"
         - "s;__IMAGE__;${inputs.params.imageUrl}:${inputs.params.imageTag};g"
-        - "/workspace/git-source/${inputs.params.pathToYamlFile}"
+        - "/workspace/repo/${inputs.params.pathToYamlFile}"
     - name: run-kubectl
-      image: registry.cn-hangzhou.aliyuncs.com/knative-sample/kubectl:v0.5.0
+      image: bitnami/kubectl:latest
       command: ["kubectl"]
       args:
         - "apply"
         - "-f"
-        - "/workspace/git-source/${inputs.params.pathToYamlFile}"
+        - "/workspace/repo/${inputs.params.pathToYamlFile}"

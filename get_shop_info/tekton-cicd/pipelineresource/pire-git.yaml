@@ -1,11 +1,11 @@
 apiVersion: tekton.dev/v1alpha1
 kind: PipelineResource
 metadata:
-  name: tekton-knative-git
+  name: kangkid-res
 spec:
   type: git
   params:
-    - name: revision
+  - name: revision
       value: master
-    - name: url
-      value: https://github.com/Kangkid/websocketorder.git
+  - name: url
+      value: https://github.com/Kangkid/websocketorder

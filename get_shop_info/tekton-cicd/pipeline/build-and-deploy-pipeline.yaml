@@ -4,7 +4,7 @@ metadata:
   name: build-and-deploy-pipeline
 spec:
   resources:
-    - name: git-source
+    - name: repo
       type: git
   params:
     - name: pathToContext
@@ -29,8 +29,8 @@ spec:
         value: "${params.imageTag}"
     resources:
       inputs:
-        - name: git-source
-          resource: git-source
+        - name: repo
+          resource: repo
   - name: deploy-to-cluster
     taskRef:
       name: deploy-using-kubectl
@@ -38,12 +38,12 @@ spec:
       - source-to-image
     params:
       - name: pathToYamlFile
-        value:  "${params.pathToYamlFile}"
+        value: "${params.pathToYamlFile}"
       - name: imageUrl
         value: "${params.imageUrl}"
       - name: imageTag
         value: "${params.imageTag}"
     resources:
       inputs:
-        - name: git-source
-          resource: git-source
+        - name: repo
+          resource: repo

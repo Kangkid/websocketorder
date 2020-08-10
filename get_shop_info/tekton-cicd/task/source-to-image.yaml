@@ -5,7 +5,7 @@ metadata:
 spec:
   inputs:
     resources:
-      - name: git-source
+      - name: repo
         type: git
     params:
       - name: pathToContext
@@ -13,7 +13,7 @@ spec:
         default: .
       - name: pathToDockerFile
         description: The path to the dockerfile to build (relative to the context)
-        default: "./Dockerfile"
+        default: Dockerfile
       - name: imageUrl
         description: Url of image repository
       - name: imageTag
@@ -21,19 +21,16 @@ spec:
         default: "latest"
   steps:
     - name: build-and-push
-      image: gcr.io/kaniko-project/executor
+      image: kangkangkid/kaniko-executor:v0.22.0
       command:
         - /kaniko/executor
       args:
-        - --dockerfile=workspace/git-resource/get_shop_info/src/Dockerfile
-        - --destination=https://index.docker.io/kangkangkid/websocketorder:latest
-        - --context=workspace/git-resource/get_shop_info/src
-        - --verbosity=debug
-
+        - --dockerfile=$(inputs.params.pathToDockerFile)
+        - --destination=$(inputs.params.imageUrl):$(inputs.params.imageTag)
+        - --context=/workspace/repo/$(inputs.params.pathToContext)
       env:
       - name: DOCKER_CONFIG
-        value: /builder/home/.docker/
-
+        value: /tekton/home/.docker
 
 
 

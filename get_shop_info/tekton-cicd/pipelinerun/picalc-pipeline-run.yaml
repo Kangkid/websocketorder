@@ -7,17 +7,17 @@ spec:
   pipelineRef:
     name: build-and-deploy-pipeline
   resources:
-    - name: git-source
+    - name: repo
       resourceRef:
-        name: tekton-knative-git
+        name: kangkid-res
   params:
     - name: pathToContext
       value: "get_shop_info/src"
     - name: pathToDockerFile
-      value: "./Dockerfile"
+      value: "Dockerfile"
     - name: pathToYamlFile
       value: "get_shop_info/knative/get_shop_info.yaml"
     - name: imageUrl
-      value: "kangkangkid/websocketorder"
+      value: "kangkangkid/get-shop-info"
     - name: imageTag
       value: "latest"
