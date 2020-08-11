@@ -20,4 +20,4 @@ spec:
     - name: imageUrl
       value: "kangkangkid/get-shop-info"
     - name: imageTag
-      value: "latest"
+      value: "1.0"

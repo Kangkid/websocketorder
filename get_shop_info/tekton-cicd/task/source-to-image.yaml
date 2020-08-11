@@ -30,5 +30,5 @@ spec:
 
         - --dockerfile=Dockerfile
         - --context=/workspace/repo/get_shop_info/src
-        - --destination=kangkangkid/get-shop-info:latest
+        - --destination=kangkangkid/get-shop-info:1.0
 
