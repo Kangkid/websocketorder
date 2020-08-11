@@ -22,15 +22,13 @@ spec:
   steps:
     - name: build-and-push
       image: kangkangkid/kaniko-executor:v0.22.0
-      command:
-        - /kaniko/executor
-      args:
-        - --dockerfile=$(inputs.params.pathToDockerFile)
-        - --destination=$(inputs.params.imageUrl):$(inputs.params.imageTag)
-        - --context=/workspace/repo/$(inputs.params.pathToContext)
       env:
       - name: DOCKER_CONFIG
         value: /tekton/home/.docker
+      command:
+        - /kaniko/executor
 
-
+        - --dockerfile=Dockerfile
+        - --context=/workspace/repo/get_shop_info/src
+        - --destination=kangkangkid/get-shop-info:latest
 
