@@ -1,0 +1,23 @@
+apiVersion: tekton.dev/v1alpha1
+kind: PipelineRunbill
+metadata:
+  generateName: tekton-kn-sample-
+spec:
+  serviceAccountName: pipeline-account
+  pipelineRef:
+    name: build-and-deploy-pipeline-bill
+  resources:
+    - name: repo
+      resourceRef:
+        name: kangkid-res
+  params:
+    - name: pathToContext
+      value: "bill/src"
+    - name: pathToDockerFile
+      value: "Dockerfile"
+    - name: pathToYamlFile
+      value: "bill/knative/bill.yaml"
+    - name: imageUrl
+      value: "kangkangkid/bill"
+    - name: imageTag
+      value: "1.0"
