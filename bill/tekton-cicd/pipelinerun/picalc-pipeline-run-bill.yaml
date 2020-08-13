@@ -20,4 +20,4 @@ spec:
     - name: imageUrl
       value: "kangkangkid/bill"
     - name: imageTag
-      value: "1.0"
+      value: "2.0"

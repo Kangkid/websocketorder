@@ -18,7 +18,7 @@ spec:
         description: Url of image repository
       - name: imageTag
         description: Tag to apply to the built image
-        default: "latest"
+        default: "2.0"
   steps:
     - name: build-and-push-bill
       image: kangkangkid/kaniko-executor:v0.22.0
@@ -30,5 +30,5 @@ spec:
 
         - --dockerfile=Dockerfile
         - --context=/workspace/repo/bill/src
-        - --destination=kangkangkid/bill:1.0
+        - --destination=kangkangkid/bill:2.0
 
