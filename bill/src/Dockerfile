@@ -1,8 +1,2 @@
-FROM python:2.7-alpine
-RUN RUN apk update && \
-    apk add --virtual build-deps gcc python-dev musl-dev && \
-    apk add postgresql-dev && \
-    pip install psycopg2-binary && \
-    pip install requests
-COPY ./bill.py .
-CMD ["python","bill.py"]
+FROM kangkangkid/get_shop_info:20200811
+CMD ["python","-c","import get_shop_info;get_shop_info.main_handler()"]
